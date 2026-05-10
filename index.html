@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Mother's Day 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#070707;
+    overflow-x:hidden;
+    color:white;
+    position:relative;
+}
+
+/* Background Glow */
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left, rgba(255,182,193,0.15), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255,255,255,0.08), transparent 25%);
+    z-index:-3;
+}
+
+/* Cursor Glow */
+.cursorGlow{
+    position:fixed;
+    width:300px;
+    height:300px;
+    background:radial-gradient(circle,
+    rgba(255,192,203,0.18),
+    transparent 70%);
+    pointer-events:none;
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    z-index:-2;
+}
+
+/* Stars */
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+    0%,100%{
+        opacity:0.2;
+        transform:scale(1);
+    }
+    50%{
+        opacity:1;
+        transform:scale(1.8);
+    }
+}
+
+/* Floating Hearts */
+.heart{
+    position:fixed;
+    color:#ffb6c1;
+    animation:floatHeart linear infinite;
+    opacity:0.7;
+    z-index:-1;
+}
+
+@keyframes floatHeart{
+    from{
+        transform:translateY(100vh) scale(1);
+    }
+    to{
+        transform:translateY(-10vh) scale(1.5);
+    }
+}
+
+/* Lock Screen */
+#lockScreen{
+    position:fixed;
+    inset:0;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:999;
+}
+
+.lockBox{
+    background:rgba(255,255,255,0.05);
+    padding:40px;
+    border-radius:25px;
+    backdrop-filter:blur(10px);
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 0 40px rgba(255,192,203,0.2);
+    width:90%;
+    max-width:450px;
+}
+
+.lockBox h1{
+    font-family:'Great Vibes',cursive;
+    font-size:3rem;
+    color:#ffd6e7;
+    margin-bottom:10px;
+}
+
+.lockBox p{
+    color:#ccc;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:#111;
+    color:white;
+    margin-bottom:15px;
+    font-size:1rem;
+}
+
+button{
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ff9bb3,#ffd1dc);
+    color:black;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+/* Main Content */
+.main{
+    display:none;
+}
+
+/* Hero */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:5rem;
+    font-family:'Great Vibes',cursive;
+    color:#ffd1dc;
+    animation:float 3s ease-in-out infinite;
+}
+
+.hero p{
+    max-width:750px;
+    margin-top:20px;
+    line-height:1.9;
+    color:#ddd;
+    font-size:1.1rem;
+}
+
+.momQuote{
+    margin-top:25px;
+    font-size:1.2rem;
+    color:#ffd6e7;
+    font-style:italic;
+    opacity:0.9;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+.scrollText{
+    margin-top:40px;
+    color:#aaa;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(10px);
+    }
+}
+
+/* Sections */
+.section{
+    padding:100px 10%;
+}
+
+.sectionTitle{
+    text-align:center;
+    font-size:3.2rem;
+    margin-bottom:60px;
+    color:#ffd1dc;
+    font-family:'Great Vibes',cursive;
+}
+
+/* Cards */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:25px;
+    padding:30px;
+    backdrop-filter:blur(8px);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 0 30px rgba(255,192,203,0.2);
+}
+
+.card h3{
+    color:#ffd6e7;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#ddd;
+    line-height:1.8;
+}
+
+/* Gallery */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.gallery img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+    border-radius:25px;
+    transition:0.5s;
+    border:2px solid rgba(255,255,255,0.08);
+    box-shadow:0 0 25px rgba(255,192,203,0.15);
+}
+
+.gallery img:hover{
+    transform:scale(1.04) rotate(1deg);
+    box-shadow:0 0 40px rgba(255,192,203,0.35);
+}
+
+/* Letter */
+.letter{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    background:rgba(255,255,255,0.05);
+    padding:50px;
+    border-radius:30px;
+    line-height:2;
+    font-size:1.1rem;
+    color:#eee;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+/* Final */
+.final{
+    min-height:70vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+.final h2{
+    font-family:'Great Vibes',cursive;
+    font-size:4rem;
+    color:#ffd6e7;
+    margin-bottom:20px;
+}
+
+.final p{
+    max-width:700px;
+    color:#ccc;
+    line-height:1.8;
+}
+
+/* Music Button */
+.musicBtn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    font-size:1.4rem;
+    z-index:100;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:3.5rem;
+    }
+
+    .sectionTitle{
+        font-size:2.6rem;
+    }
+
+    .final h2{
+        font-size:3rem;
+    }
+
+    .gallery img{
+        height:350px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Cursor Glow -->
+<div class="cursorGlow"></div>
+
+<!-- Stars -->
+<div class="stars" id="stars"></div>
+
+<!-- Lock Screen -->
+<div id="lockScreen">
+
+    <div class="lockBox">
+
+        <h1>Happy Mother’s Day 💖</h1>
+
+        <p>
+            Only the world’s best maa can enter ✨
+        </p>
+
+        <input type="password" id="password" placeholder="Enter Password">
+
+        <button onclick="unlockSite()">
+            Open Website
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Main Website -->
+<div class="main" id="mainContent">
+
+    <!-- Hero -->
+    <section class="hero">
+
+        <h1>To The Most Beautiful Soul 💐</h1>
+
+        <p>
+            Maa, thank you for every sacrifice, every prayer,
+            every hug, every sleepless night, and every moment
+            you stood beside me.
+
+            No words could ever truly describe how much
+            I love and appreciate you.
+
+            You are my home, my comfort,
+            and my greatest blessing. 💖
+        </p>
+
+        <p class="momQuote">
+            “A mother’s love is the light that never fades.” ✨
+        </p>
+
+        <div class="scrollText">
+            Scroll Down ✨
+        </div>
+
+    </section>
+
+    <!-- Cards -->
+    <section class="section">
+
+        <h2 class="sectionTitle">
+            Why You’re Amazing 🌸
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>💖 Endless Love</h3>
+                <p>
+                    Your love has always been the safest
+                    place in my life.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🌷 Your Sacrifices</h3>
+                <p>
+                    You gave up so much just to make me smile.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>✨ My Inspiration</h3>
+                <p>
+                    Your strength motivates me every single day.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🏡 My Safe Place</h3>
+                <p>
+                    No matter what happens,
+                    your hugs always feel like home.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Gallery -->
+    <section class="section">
+
+        <h2 class="sectionTitle">
+            Our Memories 📸
+        </h2>
+
+        <div class="gallery">
+
+            <img src="photo1.jpeg" alt="Maa">
+
+            <img src="photo2.jpeg" alt="Maa">
+
+            <img src="photo3.jpeg" alt="Maa">
+
+        </div>
+
+    </section>
+
+    <!-- Letter -->
+    <section class="section">
+
+        <h2 class="sectionTitle">
+            A Letter For You 💌
+        </h2>
+
+        <div class="letter">
+
+            Dear Maa,
+            <br><br>
+
+            I know I don’t always say it enough,
+            but thank you for everything.
+
+            Thank you for believing in me
+            when I doubted myself.
+
+            Thank you for standing beside me
+            through every high and low.
+
+            Thank you for loving me unconditionally.
+
+            <br><br>
+
+            You are the strongest person I know.
+            Your kindness, warmth, and love
+            make this world brighter.
+
+            <br><br>
+
+            I hope one day I can make you
+            as proud and happy
+            as you’ve made me my entire life.
+
+            <br><br>
+
+            I love you forever and always. 💖
+
+        </div>
+
+    </section>
+
+    <!-- Final -->
+    <section class="final">
+
+        <h2>
+            Happy Mother’s Day 🌹
+        </h2>
+
+        <p>
+            No matter how old I grow,
+            I will always need your love,
+            your smile,
+            and your presence in my life.
+
+            Thank you for being my everything. ✨
+        </p>
+
+    </section>
+
+    <!-- Music Button -->
+    <button class="musicBtn" onclick="toggleMusic()">
+        🎵
+    </button>
+
+    <!-- Music -->
+    <audio id="music" loop>
+    <source src="music.mp3.mp3" type="audio/mp3">
+</audio>
+
+</div>
+
+<script>
+
+/* Stars */
+const starsContainer = document.getElementById('stars');
+
+for(let i=0;i<180;i++){
+
+    const star = document.createElement('div');
+
+    star.classList.add('star');
+
+    star.style.top = Math.random()*100 + '%';
+
+    star.style.left = Math.random()*100 + '%';
+
+    star.style.animationDelay = Math.random()*3 + 's';
+
+    starsContainer.appendChild(star);
+}
+
+/* Floating Hearts */
+for(let i=0;i<25;i++){
+
+    const heart = document.createElement('div');
+
+    heart.innerHTML = '💖';
+
+    heart.classList.add('heart');
+
+    heart.style.left = Math.random()*100 + 'vw';
+
+    heart.style.fontSize = (Math.random()*20 + 15) + 'px';
+
+    heart.style.animationDuration =
+    (Math.random()*10 + 8) + 's';
+
+    document.body.appendChild(heart);
+}
+
+/* Unlock Site */
+function unlockSite(){
+
+    const pass =
+    document.getElementById('password').value;
+
+    if(pass === 'maa'){
+
+        document.getElementById('lockScreen')
+        .style.display='none';
+
+        document.getElementById('mainContent')
+        .style.display='block';
+
+        const music =
+        document.getElementById('bgMusic');
+
+        music.volume = 0.6;
+
+        music.play()
+        .then(()=>{
+            console.log("Music started");
+        })
+        .catch((err)=>{
+            console.log("Autoplay blocked:", err);
+        });
+
+    }
+
+    else{
+        alert('Wrong password 💔');
+    }
+}
+
+/* Enter Key */
+document.getElementById('password')
+.addEventListener('keypress',function(e){
+
+    if(e.key === 'Enter'){
+        unlockSite();
+    }
+});
+
+/* Music Toggle */
+const music = document.getElementById('bgMusic');
+
+let playing = true;
+
+function toggleMusic(){
+
+    if(playing){
+
+        music.pause();
+
+        playing = false;
+    }
+
+    else{
+
+        music.play();
+
+        playing = true;
+    }
+}
+
+/* Cursor Glow */
+const glow =
+document.querySelector('.cursorGlow');
+
+document.addEventListener('mousemove',(e)=>{
+
+    glow.style.left = e.clientX + 'px';
+
+    glow.style.top = e.clientY + 'px';
+});
+
+</script>
+
+</body>
+</html>
